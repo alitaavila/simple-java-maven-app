@@ -11,11 +11,11 @@ job('Java Maven App DSL 3') {
     }    
     steps {
         maven {
-          mavenInstallation('maven')
+          mavenInstallation('mavenjenkins')
           goals('-B -DskipTests clean package')
         }
         maven {
-          mavenInstallation('maven')
+          mavenInstallation('mavenjenkins')
           goals('test')
         }
         shell('''
