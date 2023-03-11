@@ -4,7 +4,7 @@ pipeline {
         gitcommit = "${gitcommit}"
     }
     tools {
-        maven 'mavenjenkins'
+        maven 'maven'
     }
 
     stages {
@@ -37,7 +37,7 @@ pipeline {
           steps {
             script {  
               docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
-                def appmavenjenkins = docker.build("macloujulian/mavenjenkins:${gitcommit}", ".")
+                def appmavenjenkins = docker.build("aleavila09/mavenjenkins:${gitcommit}", ".")
                 appmavenjenkins.push()
               }
             }  
